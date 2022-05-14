@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Выключить
+Exec=bash /home/alexey/scripts/./shutdown.sh
+#Icon=/usr/share/icons/Humanity/apps/128/system-software-update.svg
+Icon=/usr/share/icons/Humanity/actions/48/system-shutdown.svg
+Terminal=false
+Type=Application

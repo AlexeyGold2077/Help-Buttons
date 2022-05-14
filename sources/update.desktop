@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Обновление
+Exec=bash /home/alexey/scripts/./update.sh
+Icon=/usr/share/icons/Humanity/apps/128/system-software-update.svg
+Terminal=true
+Type=Application
