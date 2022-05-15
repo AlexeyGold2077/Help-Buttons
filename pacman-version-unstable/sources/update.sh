@@ -2,7 +2,10 @@
 sudo echo "Запушено обновление" >> /var/log/Help-Buttons/log.txt
 
 yes |sudo pacman -Suy
-yes |yay -Suy #сделать поиск установлен ли yay или еще какой либо менеджер!
+if pacman -Qi yay > /dev/null #проверка наличия yay в системе
+then
+	yes |yay -Suy
+fi
 
 if [ $? -eq 0 ]; then
 clear 
