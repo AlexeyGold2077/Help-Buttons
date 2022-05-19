@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Выключить
 Exec=sh /usr/bin/Help-Buttons/shutdown.sh
-Icon=/usr/share/icons/Humanity/actions/48/system-shutdown.svg
+Icon=/usr/bin/Help-Buttons/Icons/shutdown.png
 Terminal=false
 Type=Application

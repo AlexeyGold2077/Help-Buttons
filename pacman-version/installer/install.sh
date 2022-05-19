@@ -3,14 +3,21 @@ echo "Начало установки..."
 
 #создание директорий
 echo "Создание директорий..."
-if ! [ -d /usr/bin/Help-Buttons ]
+if ! [ -d /usr/bin/Help-Buttons ] #создание /usr/bin/Help-Buttons
 then
 	mkdir /usr/bin/Help-Buttons
 else
 	rm -R /usr/bin/Help-Buttons
 	mkdir /usr/bin/Help-Buttons
 fi
-if ! [ -d /var/log/Help-Buttons ]
+if ! [ -d /usr/bin/Help-Buttons/Icons ] #создание /usr/bin/Help-Buttons/Icons
+then
+	mkdir /usr/bin/Help-Buttons/Icons
+else
+	rm -R /usr/bin/Help-Buttons/Icons
+	mkdir /usr/bin/Help-Buttons/Icons
+fi
+if ! [ -d /var/log/Help-Buttons ] #создание /var/log/Help-Buttons
 then
 	mkdir /var/log/Help-Buttons
 else
@@ -20,7 +27,7 @@ fi
 
 #создание файлов
 echo "Создание файлов..."
-if ! [ -f /var/log/Help-Buttons/log.txt ]
+if ! [ -f /var/log/Help-Buttons/log.txt ] #создание log.txt
 then
 	> /var/log/Help-Buttons/log.txt
 	chmod ugo+rwx /var/log/Help-Buttons/log.txt
@@ -29,7 +36,7 @@ else
 	> /var/log/Help-Buttons/log.txt
 	chmod ugo+rwx /var/log/Help-Buttons/log.txt
 fi
-if ! [ -f /usr/bin/Help-Buttons/update.sh ]
+if ! [ -f /usr/bin/Help-Buttons/update.sh ] #создание update.sh
 then
 	> /usr/bin/Help-Buttons/update.sh
 	chmod ugo+rwx /usr/bin/Help-Buttons/update.sh
@@ -38,7 +45,7 @@ else
 	> /usr/bin/Help-Buttons/update.sh
 	chmod ugo+rwx /usr/bin/Help-Buttons/update.sh
 fi
-if ! [ -f /usr/bin/Help-Buttons/shutdown.sh ]
+if ! [ -f /usr/bin/Help-Buttons/shutdown.sh ] #создание shutdown.sh
 then
 	> /usr/bin/Help-Buttons/shutdown.sh
 	chmod ugo+rwx /usr/bin/Help-Buttons/shutdown.sh
@@ -47,23 +54,25 @@ else
 	> /usr/bin/Help-Buttons/shutdown.sh
 	chmod ugo+rwx /usr/bin/Help-Buttons/shutdown.sh
 fi
-cp sources/update.sh /usr/bin/Help-Buttons/update.sh
-cp sources/shutdown.sh /usr/bin/Help-Buttons/shutdown.sh
-for user in /home/* #поиск домашнего каталога
+cp sources/Scripts/update.sh /usr/bin/Help-Buttons/update.sh #копирование update.sh
+cp sources/Scripts/shutdown.sh /usr/bin/Help-Buttons/shutdown.sh #копирование shutdown.sh
+cp -a sources/Icons/* /usr/bin/Help-Buttons/Icons #копирование Icons
+for user in /home/* #копирование desktop файлов
 do
-	cp sources/update.desktop ${user}/Рабочий\ стол/
+	cp sources/Desktops/update.desktop ${user}/Рабочий\ стол/
 	chmod ugo+rwx ${user}//Рабочий\ стол/update.desktop
-	cp sources/shutdown.desktop ${user}/Рабочий\ стол/
+	cp sources/Desktops/shutdown.desktop ${user}/Рабочий\ стол/
 	chmod ugo+rwx ${user}//Рабочий\ стол/shutdown.desktop
 done
 
 #вывод результата установки
 echo -n "Программа установлена " >> /var/log/Help-Buttons/log.txt
 echo `date` >> /var/log/Help-Buttons/log.txt
-if [ $? -eq 0 ]; then
-echo "Успешная установка!" 
+if [ $? -eq 0 ]
+then
+	echo "Успешная установка!"
+	sleep 1
+	exit
 else
-echo "Установка не удалась, посмотрите вывод выше и задайте вопрос разработчику!"
+	echo "Установка не удалась, посмотрите вывод выше и задайте вопрос разработчику!"
 fi
-sleep 1
-exit

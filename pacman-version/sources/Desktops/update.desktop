@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Обновление
 Exec=sh /usr/bin/Help-Buttons/update.sh
-Icon=/usr/share/icons/ePapirus/128x128/system-software-update.svg
+Icon=/usr/bin/Help-Buttons/Icons/update.png
 Terminal=true
 Type=Application
