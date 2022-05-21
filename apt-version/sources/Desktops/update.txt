@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Обновление
+Exec=sh /usr/bin/Help-Buttons/update.sh
+Icon=/usr/bin/Help-Buttons/Icons/update.png
+Terminal=true
+Type=Application
