@@ -57,14 +57,15 @@ fi
 cp sources/Scripts/update.sh /usr/bin/Help-Buttons/update.sh #копирование update.sh
 cp sources/Scripts/shutdown.sh /usr/bin/Help-Buttons/shutdown.sh #копирование shutdown.sh
 cp -a sources/Icons/* /usr/bin/Help-Buttons/Icons #копирование Icons
-rmdir /home/lost+found
+rm -rf /home/lost+found
+path=`find /  -maxdepth 3 -type d -name "Desktop" -o  -name "Рабочий стол"`
 for user in /home/* #копирование desktop файлов
 do
-	cp sources/Desktops/update.desktop ${user}/Рабочий\ стол/
-	chmod ugo+rwx ${user}//Рабочий\ стол/update.desktop
-	cp sources/Desktops/shutdown.desktop ${user}/Рабочий\ стол/
-	chmod ugo+rwx ${user}//Рабочий\ стол/shutdown.desktop
-	break
+	echo "$path/"
+	cp sources/Desktops/update.desktop "$path/"
+	sudo chmod ugo+x "$path"/update.desktop
+	cp sources/Desktops/shutdown.desktop "$path/"
+	sudo chmod ugo+x "$path"/shutdown.desktop
 done
 
 #вывод результата установки
