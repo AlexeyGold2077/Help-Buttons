@@ -62,7 +62,6 @@ rm -rf /home/lost+found
 path=`find /  -maxdepth 3 -type d -name "Desktop" -o  -name "Рабочий стол"`
 for user in /home/* #копирование desktop файлов
 do
-	echo "$path/"
 	cp sources/Desktops/update.desktop "$path/"
 	sudo chmod ugo+x "$path"/update.desktop
 	cp sources/Desktops/shutdown.desktop "$path/"

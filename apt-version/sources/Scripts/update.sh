@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo echo "Запушено обновление" >> /var/log/Help-Buttons/log.txt
 yes |sudo apt update
 yes |sudo apt upgrade
 yes |sudo apt dist-upgrade
