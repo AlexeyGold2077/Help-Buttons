@@ -9,9 +9,12 @@ yes |sudo apt autoremove
 
 if [ $? -eq 0 ]
 then
-	clear
-	echo 'Все процессы выполнены успешно!'
-	sleep 5
+	for i in 5 4 3 2 1 0
+	do
+		clear
+		echo "Все процессы выполнены успешно! [$i]"
+		sleep 1
+	done
 	exit
 else
 	echo 'В процессе возникли ошибки! Проверьте вывод выше!'
