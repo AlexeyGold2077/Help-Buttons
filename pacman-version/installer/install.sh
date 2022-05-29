@@ -66,6 +66,8 @@ do
 	cp sources/Desktops/shutdown.desktop "$path/"
 	sudo chmod ugo+x "$path"/shutdown.desktop
 done
+cp sources/Desktops/update.desktop /usr/share/applications
+cp sources/Desktops/shutdown.desktop /usr/share/applications
 
 #вывод результата установки
 echo -n "Программа установлена " >> /var/log/Help-Buttons/log.txt
